@@ -146,16 +146,16 @@ Your site will now be created on Heroku. The first build may take up to 10 minut
 
 Heroku offers several addons: [https://addons.heroku.com/](https://addons.heroku.com/) for apps that include Database connections, Memcached caching, email servers, and other useful addons. We will use the database and the Memcached addons in the instructions below.
 
-You can add on the free tier of the memcache addon: [https://addons.heroku.com/memcache](https://addons.heroku.com/memcache) by running the following command. This addon is free, but you need to have verified your account to add it:
+You can add on the free tier of the memcachier addon: [https://addons.heroku.com/memcachier](https://addons.heroku.com/memcachier) by running the following command. This addon is free, but you need to have verified your account to add it:
 
-    heroku addons:add memcache:5mb
+    heroku addons:create memcachier:dev
 
 To configure the database, we must add the database and then promote it as the main database. Database names from Heroku's Postgresql service: [https://postgres.heroku.com/](https://postgres.heroku.com/) follow the pattern `HEROKU_POSTGRESQL_COLOR` where `COLOR` is an actual color name like `TEAL` or `ORANGE`. This will vary per installation, but we can look this up by running `heroku config`. The second command below will find the default color name and use it.
 
 To create and configure the database, run the following commands:
 
-    heroku addons:add heroku-postgresql:dev
-    heroku pg:promote `heroku config | grep POSTGRES | cut -d : -f 1`
+    heroku addons:add heroku-postgresql:hobby-dev
+    heroku pg:promote `heroku config | grep postgres | cut -d : -f 1`
 
 ## Setting up the database
 
